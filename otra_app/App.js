@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text,Image, Button, StyleSheet } from 'react-native';
+import { View,  Image, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import {Contador} from './componet/contador';
+import Contador from './componet/contador';
+import Botones  from './componet/boton';
 
 export default function App() {
   
@@ -22,10 +23,8 @@ export default function App() {
         <Image style={styles.logo} source={require('./assets/logofreeCode.png')}></Image>
       </View>
       <View style={styles.contadorcont}>
-        <Text>{cont}</Text>
-        <Button title='contar' style={[styles]} onPress={incrementarContador}/>
-        <Button title='reset' style={[styles]} onPress={reiniciarContador}/>
-
+        <Contador valor={cont} />
+        <Botones incrementarContador={incrementarContador} reiniciarContador={reiniciarContador} />
       </View>
 
       <StatusBar style="auto" />
@@ -36,7 +35,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: '#191970',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -48,8 +47,8 @@ const styles = StyleSheet.create({
   },
 
   logocont:{
-    flex:1,
-    backgroundColor: 'pink',
+    flex:0.5,
+    backgroundColor: '#191970',
     width: '100%', 
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -59,9 +58,5 @@ const styles = StyleSheet.create({
     flex:3,
   },
 
-  contador: {
-    fontSize: 48,
-    color: '#FFFFFF',
-    marginBottom: 20,
-  },
+
 });
